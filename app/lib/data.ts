@@ -60,6 +60,12 @@ export async function fetchCardData() {
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
          FROM invoices`;
 
+    // 在JavaScript中，您可以使用PromisePromise.all() 或Promise.allSettled() 
+    // 同時初始化所有promises的功能。
+
+    // 透過使用此模式，您可以：
+    //  - 開始同時執行所有資料獲取，這可能會導致效能提升。
+    //  - 使用可以應用於任何庫或框架的原生JavaScript模式。
     const data = await Promise.all([
       invoiceCountPromise,
       customerCountPromise,
